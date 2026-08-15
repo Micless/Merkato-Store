@@ -1110,15 +1110,15 @@ export default function App() {
   const activePaymentInfo = PAYMENT_INFO[paymentMethod];
 
   return (
-    <div className="store-container" data-theme={darkMode ? "dark" : "light"}>
-      <header className="top-navbar">
+    <div className="store-container w-full max-w-full overflow-x-hidden" data-theme={darkMode ? "dark" : "light"}>
+      <header className="top-navbar flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-4 px-4 sm:px-6 lg:px-8 py-3">
         <div className="nav-brand">MERKATO STORE</div>
 
-        <div className="search-bar-container">
+        <div className="search-bar-container w-full lg:w-auto lg:flex-1">
           <input
             type="text"
             placeholder="Search cultural items, electronics..."
-            className="search-input"
+            className="search-input w-full"
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -1130,7 +1130,7 @@ export default function App() {
           <button className="search-btn">🔍</button>
         </div>
 
-        <div className="nav-actions">
+        <div className="nav-actions flex items-center justify-between lg:justify-end gap-3 w-full lg:w-auto">
           <button
             className={`ios-toggle ${darkMode ? "ios-toggle-on" : ""}`}
             onClick={() => setDarkMode((prev) => !prev)}
@@ -1154,11 +1154,11 @@ export default function App() {
         </div>
       </header>
 
-      <nav className="sub-navbar">
+      <nav className="sub-navbar flex flex-wrap lg:flex-nowrap gap-2 px-4 sm:px-6 lg:px-8 overflow-x-auto">
         {["Home", "Shop All", "Cultural Clothes & Crafts", "Electronics", "Modern Fashion", "Spices & Coffee"].map((cat) => (
           <button
             key={cat}
-            className={`nav-link ${selectedCategory === cat ? "active-link" : ""}`}
+            className={`nav-link whitespace-nowrap ${selectedCategory === cat ? "active-link" : ""}`}
             onClick={() => setSelectedCategory(cat)}
           >
             {cat}
@@ -1177,8 +1177,8 @@ export default function App() {
           </div>
         ))}
         <div className="hero-overlay-dark" />
-        <div className="hero-overlay">
-          <h2>Authentic Merkato Finds, Delivered.</h2>
+        <div className="hero-overlay px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl leading-tight text-center break-words">Authentic Merkato Finds, Delivered.</h2>
         </div>
         <div className="slider-dots">
           {HERO_IMAGES.map((_, idx) => (
@@ -1192,35 +1192,35 @@ export default function App() {
       </section>
 
       {selectedCategory === "Home" ? (
-        <div className="quick-cat-section">
+        <div className="quick-cat-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 px-4 sm:px-6 lg:px-8">
           <div className="quick-cat-card" onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}>
             <div className="quick-cat-image">
-              <img src="Kemis 1.jpg" alt="Habesha Kemis" />
+              <img className="w-full h-auto object-cover" src="Kemis 1.jpg" alt="Habesha Kemis" />
             </div>
             <h4>Habesha Kemis</h4>
           </div>
           <div className="quick-cat-card" onClick={() => setSelectedCategory("Electronics")}>
             <div className="quick-cat-image">
-              <img src="Electronics.png" alt="Electronics" />
+              <img className="w-full h-auto object-cover" src="Electronics.png" alt="Electronics" />
             </div>
             <h4>Electronics</h4>
           </div>
           <div className="quick-cat-card" onClick={() => setSelectedCategory("Modern Fashion")}>
             <div className="quick-cat-image">
-              <img src="Sneaker.png" alt="Modern Fashion" />
+              <img className="w-full h-auto object-cover" src="Sneaker.png" alt="Modern Fashion" />
             </div>
             <h4>Modern Fashion</h4>
           </div>
           <div className="quick-cat-card" onClick={() => setSelectedCategory("Spices & Coffee")}>
             <div className="quick-cat-image">
-              <img src="Spices.png" alt="Spices" />
+              <img className="w-full h-auto object-cover" src="Spices.png" alt="Spices" />
             </div>
             <h4>Spices</h4>
           </div>
         </div>
       ) : (
-      <main className="main-layout">
-        <aside className="filter-sidebar">
+      <main className="main-layout flex flex-col lg:flex-row gap-4 px-4 sm:px-6 lg:px-8">
+        <aside className="filter-sidebar w-full lg:w-64 shrink-0">
           <h3>Categories</h3>
           <div className="filter-group">
             {["Shop All", "Cultural Clothes & Crafts", "Electronics", "Modern Fashion", "Spices & Coffee"].map((cat) => (
@@ -1243,7 +1243,7 @@ export default function App() {
             max="500000"
             value={maxPrice}
             onChange={(e) => setMaxPrice(Number(e.target.value))}
-            className="price-slider"
+            className="price-slider w-full"
           />
           <div className="price-labels">
             <span>100 ETB</span>
@@ -1251,32 +1251,32 @@ export default function App() {
           </div>
         </aside>
 
-        <section className="products-display">
-          <h2 className="section-title">
+        <section className="products-display flex-1 min-w-0">
+          <h2 className="section-title break-words">
             {selectedCategory} {searchQuery && ` - Search results for "${searchQuery}"`}
           </h2>
 
           {filteredProducts.length === 0 ? (
             <p className="empty-cart-msg">No products found matching your filters.</p>
           ) : (
-            <div className="products-grid">
+            <div className="products-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {filteredProducts.map((product) => {
                 const discount = getDiscountInfo(product);
                 return (
                   <div
                     key={product.id}
-                    className="product-card"
+                    className="product-card min-w-0 overflow-hidden"
                     onClick={() => openProductDetail(product)}
                     role="button"
                     tabIndex={0}
                   >
                     <div className="image-wrapper">
                       <span className="discount-badge">-{discount.percent}%</span>
-                      <img src={product.image} alt={product.name} />
+                      <img className="w-full h-auto object-cover" src={product.image} alt={product.name} />
                     </div>
-                    <div className="card-body">
-                      <h3>{product.name}</h3>
-                      <div className="price-block">
+                    <div className="card-body min-w-0">
+                      <h3 className="truncate">{product.name}</h3>
+                      <div className="price-block flex-wrap">
                         <span className="original-price">{discount.original.toLocaleString()} ETB</span>
                         <span className="price">{product.price.toLocaleString()} ETB</span>
                       </div>
@@ -1290,8 +1290,8 @@ export default function App() {
       </main>
       )}
 
-      <footer className="site-footer">
-        <div className="footer-container">
+      <footer className="site-footer px-4 sm:px-6 lg:px-8">
+        <div className="footer-container grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="footer-col">
             <h4>Category</h4>
             <button className="footer-link" onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}>Cultural Clothes & Crafts</button>
@@ -1313,8 +1313,8 @@ export default function App() {
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <span className="footer-copyright">© 2026 Merkato Store. All rights reserved.</span>
+        <div className="footer-bottom flex flex-col sm:flex-row items-center gap-3 sm:gap-0">
+          <span className="footer-copyright text-center sm:text-left">© 2026 Merkato Store. All rights reserved.</span>
           <div className="footer-social">
             <a
               href="https://www.linkedin.com/in/michael-tad-ab0989306?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -1357,7 +1357,7 @@ export default function App() {
 
       {(activeFooterModal === "story" || activeFooterModal === "how") && (
         <div
-          className={`footer-info-page footer-info-page-${activeFooterModal}`}
+          className={`footer-info-page footer-info-page-${activeFooterModal} px-4 sm:px-6 lg:px-8`}
           style={{
             backgroundImage: `linear-gradient(180deg, rgba(2,6,23,0.78) 0%, rgba(2,6,23,0.58) 40%, rgba(2,6,23,0.82) 100%), url(${activeFooterModal === "story" ? ourStoryBg : howItWorksBg})`
           }}
@@ -1377,7 +1377,7 @@ export default function App() {
 
             <div className="footer-info-body">
               {activeFooterModal === "story" && (
-                <div className="story-features-grid footer-info-grid">
+                <div className="story-features-grid footer-info-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {STORY_FEATURES.map((feature) => (
                     <div key={feature.title} className="story-feature-card">
                       <div className="story-feature-icon">{feature.icon}</div>
@@ -1389,7 +1389,7 @@ export default function App() {
               )}
 
               {activeFooterModal === "how" && (
-                <div className="steps-flow footer-info-steps">
+                <div className="steps-flow footer-info-steps flex flex-col lg:flex-row items-stretch gap-4">
                   {HOW_IT_WORKS_STEPS.map((step, idx) => (
                     <React.Fragment key={step.step}>
                       <div className="step-card">
@@ -1409,8 +1409,8 @@ export default function App() {
       )}
 
       {(activeFooterModal === "contact" || activeFooterModal === "support") && (
-        <div className="footer-modal-overlay" onClick={closeFooterModal}>
-          <div className={`footer-modal footer-modal-${activeFooterModal}`} onClick={(e) => e.stopPropagation()}>
+        <div className="footer-modal-overlay px-4" onClick={closeFooterModal}>
+          <div className={`footer-modal footer-modal-${activeFooterModal} w-full max-w-full sm:max-w-lg mx-auto`} onClick={(e) => e.stopPropagation()}>
             <div className="footer-modal-header">
               <div className="footer-modal-heading">
                 <h2>{FOOTER_MODAL_TITLES[activeFooterModal]}</h2>
@@ -1432,29 +1432,31 @@ export default function App() {
                     <div className="contact-success-icon">✅</div>
                     <h3>Message Sent Successfully!</h3>
                     <p>Thanks for reaching out — our team will get back to you within one business day.</p>
-                    <button className="contact-send-another-btn" onClick={() => setContactSubmitted(false)}>
+                    <button className="contact-send-another-btn w-full sm:w-auto" onClick={() => setContactSubmitted(false)}>
                       Send Another Message
                     </button>
                   </div>
                 ) : (
                   <form className="contact-form" onSubmit={handleContactSubmit}>
-                    <div className="contact-form-row">
-                      <div className="contact-form-group">
+                    <div className="contact-form-row flex flex-col sm:flex-row gap-3">
+                      <div className="contact-form-group flex-1 min-w-0">
                         <label htmlFor="contact-name">Full Name</label>
                         <input
                           id="contact-name"
                           type="text"
+                          className="w-full"
                           placeholder="Abebe Kebede"
                           value={contactForm.name}
                           onChange={(e) => handleContactFieldChange("name", e.target.value)}
                           required
                         />
                       </div>
-                      <div className="contact-form-group">
+                      <div className="contact-form-group flex-1 min-w-0">
                         <label htmlFor="contact-email">Email Address</label>
                         <input
                           id="contact-email"
                           type="email"
+                          className="w-full"
                           placeholder="you@example.com"
                           value={contactForm.email}
                           onChange={(e) => handleContactFieldChange("email", e.target.value)}
@@ -1468,6 +1470,7 @@ export default function App() {
                       <input
                         id="contact-subject"
                         type="text"
+                        className="w-full"
                         placeholder="Question about my order"
                         value={contactForm.subject}
                         onChange={(e) => handleContactFieldChange("subject", e.target.value)}
@@ -1478,6 +1481,7 @@ export default function App() {
                       <label htmlFor="contact-message">Message</label>
                       <textarea
                         id="contact-message"
+                        className="w-full"
                         rows={4}
                         placeholder="Tell us how we can help..."
                         value={contactForm.message}
@@ -1486,7 +1490,7 @@ export default function App() {
                       />
                     </div>
 
-                    <button type="submit" className="contact-send-btn">Send Message</button>
+                    <button type="submit" className="contact-send-btn w-full sm:w-auto">Send Message</button>
                   </form>
                 )
               )}
@@ -1508,9 +1512,9 @@ export default function App() {
                         <path d="M21.05 3.16 2.79 10.28c-1.25.5-1.24 1.19-.23 1.5l4.68 1.46 1.8 5.56c.22.6.37.84.76.84.35 0 .5-.16.7-.35l1.68-1.63 4.87 3.6c.65.36 1.12.17 1.28-.6l2.7-16.05c.24-1.1-.42-1.6-1.02-1.35zM8.36 13.62l9.7-6.1c.46-.28.88-.13.53.18l-8.28 7.48-.32 3.46-1.63-5.02z" />
                       </svg>
                     </span>
-                    <span className="telegram-support-info">
+                    <span className="telegram-support-info min-w-0">
                       <span className="telegram-support-label">Chat with us on Telegram</span>
-                      <span className="telegram-support-username">{TELEGRAM_USERNAME}</span>
+                      <span className="telegram-support-username truncate">{TELEGRAM_USERNAME}</span>
                     </span>
                     <span className="telegram-support-arrow">→</span>
                   </a>
@@ -1522,7 +1526,7 @@ export default function App() {
       )}
 
       {selectedProduct && (
-        <div className="product-detail-page">
+        <div className="product-detail-page px-4 sm:px-6 lg:px-8">
           <button className="back-to-products-btn" onClick={closeProductDetail}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
@@ -1530,12 +1534,12 @@ export default function App() {
             Back to Products
           </button>
 
-          <div className="detail-content">
-            <div className="detail-gallery">
+          <div className="detail-content flex flex-col lg:flex-row gap-6">
+            <div className="detail-gallery w-full lg:w-1/2 min-w-0">
               <div className="detail-main-image">
-                <img src={detailActiveImage} alt={selectedProduct.name} />
+                <img className="w-full h-auto object-contain" src={detailActiveImage} alt={selectedProduct.name} />
               </div>
-              <div className="detail-thumbs">
+              <div className="detail-thumbs flex flex-wrap gap-2">
                 {getProductImages(selectedProduct)
                   .filter((img) => !brokenThumbImages.has(img))
                   .map((img, idx) => (
@@ -1545,6 +1549,7 @@ export default function App() {
                       onClick={() => setDetailActiveImage(img)}
                     >
                       <img
+                        className="w-full h-auto object-cover"
                         src={img}
                         alt={`${selectedProduct.name} ${idx + 1}`}
                         onError={() =>
@@ -1561,21 +1566,21 @@ export default function App() {
               </div>
             </div>
 
-            <div className="detail-info">
+            <div className="detail-info w-full lg:w-1/2 min-w-0">
               <span className="card-category">{selectedProduct.category}</span>
-              <h2 className="detail-title">{selectedProduct.name}</h2>
+              <h2 className="detail-title break-words">{selectedProduct.name}</h2>
               <div className="detail-rating">
                 <StarRating score={getRatingScore(selectedProduct)} />
                 <span className="detail-rating-count">({getProductReviews(selectedProduct).length} reviews)</span>
               </div>
 
-              <div className="detail-price-row">
+              <div className="detail-price-row flex flex-wrap items-center gap-2">
                 <span className="detail-price">{selectedProduct.price.toLocaleString()} ETB</span>
                 <span className="detail-original-price">{getDiscountInfo(selectedProduct).original.toLocaleString()} ETB</span>
                 <span className="detail-discount-badge">-{getDiscountInfo(selectedProduct).percent}%</span>
               </div>
 
-              <p className="detail-description">{getProductDescription(selectedProduct)}</p>
+              <p className="detail-description break-words">{getProductDescription(selectedProduct)}</p>
 
               <div className="detail-qty-row">
                 <span className="detail-qty-label">Quantity</span>
@@ -1586,10 +1591,10 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="detail-action-row">
-                <button className="buy-now-btn" onClick={handleDetailBuyNow}>Buy Now</button>
+              <div className="detail-action-row flex flex-col sm:flex-row gap-3">
+                <button className="buy-now-btn w-full sm:w-auto" onClick={handleDetailBuyNow}>Buy Now</button>
                 <button
-                  className={`detail-add-btn ${isInCart(selectedProduct.id) ? "added" : ""}`}
+                  className={`detail-add-btn w-full sm:w-auto ${isInCart(selectedProduct.id) ? "added" : ""}`}
                   onClick={handleDetailAddToggle}
                 >
                   {isInCart(selectedProduct.id) ? "✓ Added to Cart" : "Add to Cart"}
@@ -1607,13 +1612,13 @@ export default function App() {
                       >
                         {review.initials}
                       </div>
-                      <div className="review-body">
-                        <div className="review-header">
+                      <div className="review-body min-w-0">
+                        <div className="review-header flex flex-wrap items-center gap-2">
                           <span className="review-name">{review.name}</span>
                           <span className="review-date">{review.date}</span>
                         </div>
                         <div className="review-stars">{"⭐".repeat(review.rating)}</div>
-                        <p className="review-comment">{review.comment}</p>
+                        <p className="review-comment break-words">{review.comment}</p>
                       </div>
                     </div>
                   ))}
@@ -1626,13 +1631,13 @@ export default function App() {
 
       {isCartOpen && (
         <div className="cart-drawer-overlay" onClick={() => setIsCartOpen(false)}>
-          <div className="cart-drawer" onClick={(e) => e.stopPropagation()}>
-            <div className="cart-drawer-header">
+          <div className="cart-drawer w-full sm:max-w-md" onClick={(e) => e.stopPropagation()}>
+            <div className="cart-drawer-header px-4 sm:px-6">
               <h2>Your Shopping Cart ({cart.length})</h2>
               <button className="close-drawer-btn" onClick={() => setIsCartOpen(false)}>✕</button>
             </div>
 
-            <div className="cart-drawer-body">
+            <div className="cart-drawer-body px-4 sm:px-6">
               {cart.length === 0 ? (
                 <p className="empty-cart-msg">Your cart is empty. Start shopping!</p>
               ) : (
@@ -1640,9 +1645,9 @@ export default function App() {
                   <div className="cart-items-list">
                     {cart.map((item, index) => (
                       <div key={index} className="cart-drawer-item">
-                        <img src={item.image} alt={item.name} className="cart-item-thumb" />
-                        <div className="item-details">
-                          <h4>{item.name}</h4>
+                        <img className="cart-item-thumb w-16 h-16 sm:w-20 sm:h-20 object-cover shrink-0" src={item.image} alt={item.name} />
+                        <div className="item-details min-w-0">
+                          <h4 className="truncate">{item.name}</h4>
                           <span className="item-price">{item.price.toLocaleString()} ETB</span>
                         </div>
                         <button
@@ -1681,7 +1686,7 @@ export default function App() {
 
                     <div className="payment-methods-box">
                       <h3>Payment Method</h3>
-                      <div className="payment-grid">
+                      <div className="payment-grid grid grid-cols-1 sm:grid-cols-3 gap-2">
                         <label className={`pay-option ${paymentMethod === "telebirr" ? "pay-option-selected" : ""}`}>
                           <input
                             type="radio"
@@ -1724,7 +1729,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    <button className="checkout-action-btn" onClick={() => setShowPaymentModal(true)}>
+                    <button className="checkout-action-btn w-full" onClick={() => setShowPaymentModal(true)}>
                       Checkout Now
                     </button>
                   </div>
@@ -1736,8 +1741,8 @@ export default function App() {
       )}
 
       {showPaymentModal && (
-        <div className="payment-modal-overlay" onClick={closePaymentModal}>
-          <div className="payment-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="payment-modal-overlay px-4" onClick={closePaymentModal}>
+          <div className="payment-modal w-full max-w-full sm:max-w-md mx-auto" onClick={(e) => e.stopPropagation()}>
             {paymentStep === "form" ? (
               <>
                 <div className="payment-modal-header">
@@ -1746,19 +1751,19 @@ export default function App() {
                 </div>
 
                 <div className="payment-qr-wrap">
-                  <img src={activePaymentInfo.qr} alt={`${activePaymentInfo.label} QR code`} />
+                  <img className="w-full h-auto max-w-[220px] mx-auto" src={activePaymentInfo.qr} alt={`${activePaymentInfo.label} QR code`} />
                 </div>
 
                 <div className="payment-details-box">
-                  <div className="payment-detail-row">
+                  <div className="payment-detail-row flex flex-wrap justify-between gap-1">
                     <span>Account / Phone</span>
                     <span>{activePaymentInfo.account}</span>
                   </div>
-                  <div className="payment-detail-row">
+                  <div className="payment-detail-row flex flex-wrap justify-between gap-1">
                     <span>Account Name</span>
                     <span>{activePaymentInfo.holder}</span>
                   </div>
-                  <div className="payment-detail-row">
+                  <div className="payment-detail-row flex flex-wrap justify-between gap-1">
                     <span>Amount Due</span>
                     <span>{cartTotal.toLocaleString()} ETB</span>
                   </div>
@@ -1769,6 +1774,7 @@ export default function App() {
                   <input
                     id="txn-ref"
                     type="text"
+                    className="w-full"
                     value={txnRef}
                     onChange={(e) => setTxnRef(e.target.value)}
                     placeholder="e.g. FT2508XXXXXXX"
@@ -1780,13 +1786,14 @@ export default function App() {
                   <input
                     id="receipt-upload"
                     type="file"
+                    className="w-full"
                     accept="image/*,.pdf"
                     onChange={(e) => setReceiptFileName(e.target.files?.[0]?.name ?? null)}
                   />
                 </div>
 
                 <button
-                  className="confirm-payment-btn"
+                  className="confirm-payment-btn w-full"
                   disabled={!txnRef.trim() || !receiptFileName}
                   onClick={handleConfirmPayment}
                 >
@@ -1805,7 +1812,7 @@ export default function App() {
                 <h3>Order Confirmed</h3>
                 <p>Thank you! Your payment has been verified and your order is now being processed.</p>
 
-                <div className="order-tracker">
+                <div className="order-tracker flex flex-wrap items-center justify-center gap-1">
                   <div className="order-step completed">
                     <div className="order-step-dot">✓</div>
                     <span>Order Placed</span>
@@ -1828,17 +1835,17 @@ export default function App() {
                 </div>
 
                 <div className="order-details-box">
-                  <div className="order-detail-row">
+                  <div className="order-detail-row flex flex-wrap justify-between gap-1">
                     <span>Order Reference</span>
                     <span>{orderRef}</span>
                   </div>
-                  <div className="order-detail-row">
+                  <div className="order-detail-row flex flex-wrap justify-between gap-1">
                     <span>Estimated Delivery</span>
                     <span>{estimatedDelivery}</span>
                   </div>
                 </div>
 
-                <button className="payment-success-close-btn" onClick={closePaymentModal}>Done</button>
+                <button className="payment-success-close-btn w-full sm:w-auto" onClick={closePaymentModal}>Done</button>
               </div>
             )}
           </div>
