@@ -1192,28 +1192,28 @@ export default function App() {
       </section>
 
       {selectedCategory === "Home" ? (
-        <div className="quick-cat-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 px-4 sm:px-6 lg:px-8">
-          <div className="quick-cat-card" onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}>
-            <div className="quick-cat-image">
-              <img className="w-full h-auto object-cover" src="Kemis 1.jpg" alt="Habesha Kemis" />
+        <div className="quick-cat-section grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 sm:px-6 lg:px-8">
+          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}>
+            <div className="quick-cat-image flex items-center justify-center">
+              <img className="w-full h-auto object-contain mx-auto" src="Kemis 1.jpg" alt="Habesha Kemis" />
             </div>
             <h4>Habesha Kemis</h4>
           </div>
-          <div className="quick-cat-card" onClick={() => setSelectedCategory("Electronics")}>
-            <div className="quick-cat-image">
-              <img className="w-full h-auto object-cover" src="Electronics.png" alt="Electronics" />
+          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Electronics")}>
+            <div className="quick-cat-image flex items-center justify-center">
+              <img className="w-full h-auto object-contain mx-auto" src="Electronics.png" alt="Electronics" />
             </div>
             <h4>Electronics</h4>
           </div>
-          <div className="quick-cat-card" onClick={() => setSelectedCategory("Modern Fashion")}>
-            <div className="quick-cat-image">
-              <img className="w-full h-auto object-cover" src="Sneaker.png" alt="Modern Fashion" />
+          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Modern Fashion")}>
+            <div className="quick-cat-image flex items-center justify-center">
+              <img className="w-full h-auto object-contain mx-auto" src="Sneaker.png" alt="Modern Fashion" />
             </div>
             <h4>Modern Fashion</h4>
           </div>
-          <div className="quick-cat-card" onClick={() => setSelectedCategory("Spices & Coffee")}>
-            <div className="quick-cat-image">
-              <img className="w-full h-auto object-cover" src="Spices.png" alt="Spices" />
+          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Spices & Coffee")}>
+            <div className="quick-cat-image flex items-center justify-center">
+              <img className="w-full h-auto object-contain mx-auto" src="Spices.png" alt="Spices" />
             </div>
             <h4>Spices</h4>
           </div>
@@ -1259,7 +1259,7 @@ export default function App() {
           {filteredProducts.length === 0 ? (
             <p className="empty-cart-msg">No products found matching your filters.</p>
           ) : (
-            <div className="products-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="products-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {filteredProducts.map((product) => {
                 const discount = getDiscountInfo(product);
                 return (
@@ -1270,9 +1270,9 @@ export default function App() {
                     role="button"
                     tabIndex={0}
                   >
-                    <div className="image-wrapper">
+                    <div className="image-wrapper flex items-center justify-center">
                       <span className="discount-badge">-{discount.percent}%</span>
-                      <img className="w-full h-auto object-cover" src={product.image} alt={product.name} />
+                      <img className="w-full h-auto object-contain mx-auto" src={product.image} alt={product.name} />
                     </div>
                     <div className="card-body min-w-0">
                       <h3 className="truncate">{product.name}</h3>
@@ -1409,7 +1409,7 @@ export default function App() {
       )}
 
       {(activeFooterModal === "contact" || activeFooterModal === "support") && (
-        <div className="footer-modal-overlay px-4" onClick={closeFooterModal}>
+        <div className="footer-modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeFooterModal}>
           <div className={`footer-modal footer-modal-${activeFooterModal} w-full max-w-full sm:max-w-lg mx-auto`} onClick={(e) => e.stopPropagation()}>
             <div className="footer-modal-header">
               <div className="footer-modal-heading">
@@ -1630,7 +1630,7 @@ export default function App() {
       )}
 
       {isCartOpen && (
-        <div className="cart-drawer-overlay" onClick={() => setIsCartOpen(false)}>
+        <div className="cart-drawer-overlay fixed inset-0 z-50" onClick={() => setIsCartOpen(false)}>
           <div className="cart-drawer w-full sm:max-w-md" onClick={(e) => e.stopPropagation()}>
             <div className="cart-drawer-header px-4 sm:px-6">
               <h2>Your Shopping Cart ({cart.length})</h2>
@@ -1741,7 +1741,7 @@ export default function App() {
       )}
 
       {showPaymentModal && (
-        <div className="payment-modal-overlay px-4" onClick={closePaymentModal}>
+        <div className="payment-modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closePaymentModal}>
           <div className="payment-modal w-full max-w-full sm:max-w-md mx-auto" onClick={(e) => e.stopPropagation()}>
             {paymentStep === "form" ? (
               <>

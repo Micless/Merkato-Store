@@ -61,11 +61,18 @@
   --accent-blue: #60a5fa;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--page-bg) !important;
   color: var(--text-primary) !important;
   line-height: 1.5;
   transition: background-color 0.25s ease, color 0.25s ease;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .store-container {
@@ -74,6 +81,9 @@ body {
   flex-direction: column;
   background-color: var(--page-bg) !important;
   transition: background-color 0.25s ease;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .top-navbar {
@@ -420,6 +430,9 @@ body {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   box-shadow: 0 2px 6px var(--shadow-color) !important;
   border: 1px solid var(--border-color) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  width: 100% !important;
 }
 
 .quick-cat-card:hover {
@@ -444,6 +457,8 @@ body {
   height: 100% !important;
   object-fit: contain !important;
   transition: transform 0.3s ease !important;
+  margin: 0 auto !important;
+  display: block !important;
 }
 
 .quick-cat-card:hover .quick-cat-image img {
@@ -547,6 +562,7 @@ body {
   flex-direction: column !important;
   transition: all 0.25s ease !important;
   cursor: pointer !important;
+  max-width: 100% !important;
 }
 
 .product-card:hover {
@@ -571,6 +587,8 @@ body {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
+  margin: 0 auto !important;
+  display: block !important;
 }
 
 /* Discount badge */
@@ -595,6 +613,7 @@ body {
   flex-direction: column !important;
   flex: 1 !important;
   gap: 0.3rem !important;
+  min-width: 0 !important;
 }
 
 .card-category {
@@ -612,6 +631,8 @@ body {
   color: var(--text-primary) !important;
   margin-bottom: 0.35rem !important;
   line-height: 1.3 !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 .rating {
@@ -969,6 +990,7 @@ body {
   overflow-y: auto !important;
   padding: 1.75rem !important;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35) !important;
+  margin: 0 auto !important;
 }
 
 .payment-modal-header {
@@ -1015,6 +1037,8 @@ body {
   border: 1px solid var(--border-color) !important;
   background: #ffffff !important;
   padding: 0.6rem !important;
+  margin: 0 auto !important;
+  display: block !important;
 }
 
 .payment-details-box {
@@ -1033,6 +1057,7 @@ body {
   justify-content: space-between !important;
   gap: 0.75rem !important;
   font-size: 0.9rem !important;
+  flex-wrap: wrap !important;
 }
 
 .payment-detail-row span:first-child {
@@ -1044,6 +1069,7 @@ body {
   color: var(--text-heading) !important;
   font-weight: 700 !important;
   text-align: right !important;
+  word-break: break-word !important;
 }
 
 .payment-form-group {
@@ -1067,6 +1093,7 @@ body {
   background: var(--input-bg) !important;
   color: var(--text-primary) !important;
   outline: none !important;
+  width: 100% !important;
 }
 
 .payment-form-group input[type='text']:focus {
@@ -1076,6 +1103,8 @@ body {
 .payment-form-group input[type='file'] {
   font-size: 0.85rem !important;
   color: var(--text-secondary) !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .confirm-payment-btn {
@@ -1141,6 +1170,7 @@ body {
   align-items: flex-start !important;
   justify-content: center !important;
   margin: 1.5rem 0 !important;
+  flex-wrap: wrap !important;
 }
 
 .order-step {
@@ -1211,6 +1241,7 @@ body {
   justify-content: space-between !important;
   gap: 0.75rem !important;
   font-size: 0.9rem !important;
+  flex-wrap: wrap !important;
 }
 
 .order-detail-row span:first-child {
@@ -1222,6 +1253,7 @@ body {
   color: var(--text-heading) !important;
   font-weight: 700 !important;
   text-align: right !important;
+  word-break: break-word !important;
 }
 
 .payment-success {
@@ -1375,6 +1407,7 @@ body {
   overflow-y: auto !important;
   padding: 1.75rem !important;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35) !important;
+  margin: 0 auto !important;
 }
 
 .footer-modal-header {
@@ -1593,6 +1626,8 @@ body {
   outline: none !important;
   resize: vertical !important;
   transition: border-color 0.2s ease !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .contact-form-group input:focus,
@@ -1747,6 +1782,7 @@ body {
   background-color: var(--page-bg) !important;
   z-index: 300 !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
   display: flex !important;
   flex-direction: column !important;
 }
@@ -1789,6 +1825,7 @@ body {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.9rem !important;
+  min-width: 0 !important;
 }
 
 .detail-main-image {
@@ -1807,6 +1844,8 @@ body {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
+  margin: 0 auto !important;
+  display: block !important;
 }
 
 .detail-thumbs {
@@ -1828,6 +1867,7 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  flex-shrink: 0 !important;
 }
 
 .detail-thumb img {
@@ -1850,6 +1890,7 @@ body {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.4rem !important;
+  min-width: 0 !important;
 }
 
 .detail-title {
@@ -1859,6 +1900,8 @@ body {
   color: var(--text-heading) !important;
   line-height: 1.3 !important;
   margin: 0.25rem 0 0.35rem 0 !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 .detail-rating {
@@ -1866,6 +1909,7 @@ body {
   align-items: center !important;
   gap: 0.5rem !important;
   margin-bottom: 0.6rem !important;
+  flex-wrap: wrap !important;
 }
 
 .detail-rating-count {
@@ -1879,6 +1923,7 @@ body {
   display: flex !important;
   align-items: center !important;
   gap: 0.35rem !important;
+  flex-wrap: wrap !important;
 }
 
 .star-icon {
@@ -1931,6 +1976,8 @@ body {
   margin-bottom: 1.25rem !important;
   padding-bottom: 1.25rem !important;
   border-bottom: 1px solid var(--divider-color) !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 .detail-qty-row {
@@ -1938,6 +1985,8 @@ body {
   align-items: center !important;
   justify-content: space-between !important;
   margin-bottom: 1.25rem !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
 }
 
 .detail-qty-label {
@@ -2079,6 +2128,7 @@ body {
   align-items: center !important;
   justify-content: space-between !important;
   gap: 0.5rem !important;
+  flex-wrap: wrap !important;
 }
 
 .review-name {
@@ -2102,6 +2152,8 @@ body {
   font-size: 0.88rem !important;
   color: var(--text-secondary) !important;
   line-height: 1.5 !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 @media (max-width: 720px) {
@@ -2134,6 +2186,7 @@ body {
   background-position: center !important;
   background-repeat: no-repeat !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
   display: flex !important;
   flex-direction: column !important;
 }
@@ -2279,5 +2332,170 @@ body {
 
   .footer-info-back-btn {
     padding: 0.85rem 1.25rem !important;
+  }
+}
+
+/* ======================================================================
+   MOBILE-FIRST RESPONSIVE FIXES (Tailwind-equivalent breakpoints)
+   Everything in this block only takes effect BELOW the noted breakpoint,
+   so the existing desktop (lg: / 1024px+) layout above is untouched.
+   sm  -> max-width: 639px  (phones)
+   md  -> max-width: 1023px (phones + tablets, "below lg")
+   ====================================================================== */
+
+/* ---- md: below 1024px — tablet & below ---- */
+@media (max-width: 1023px) {
+  .top-navbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0.85rem 1rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .search-bar-container {
+    flex: 1 1 auto !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .nav-actions {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  .main-layout {
+    flex-direction: column !important;
+    padding: 0 1rem 3rem 1rem !important;
+  }
+
+  .filter-sidebar {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
+  }
+
+  .quick-cat-section {
+    padding: 1.75rem 1rem 0 1rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  .quick-cat-image {
+    height: 160px !important;
+    padding: 0.85rem !important;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ---- sm: below 640px — phones ---- */
+@media (max-width: 639px) {
+  .sub-navbar {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .hero-banner-container {
+    height: 220px !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .hero-overlay {
+    padding: 0 1rem !important;
+  }
+
+  .hero-overlay h2 {
+    font-size: 1.5rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .quick-cat-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+    padding: 1.5rem 0.75rem 0 0.75rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .quick-cat-image {
+    height: 110px !important;
+    padding: 0.6rem !important;
+  }
+
+  .quick-cat-card h4 {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 0.4rem !important;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  .image-wrapper {
+    height: 140px !important;
+    padding: 0.6rem !important;
+  }
+
+  .card-body {
+    padding: 0.75rem !important;
+  }
+
+  .card-body h3 {
+    font-size: 0.85rem !important;
+  }
+
+  .price {
+    font-size: 0.95rem !important;
+  }
+
+  .detail-content {
+    padding: 1.25rem 1rem 3rem 1rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .detail-title {
+    font-size: 1.25rem !important;
+  }
+
+  .detail-price {
+    font-size: 1.5rem !important;
+  }
+
+  .detail-action-row {
+    flex-direction: column !important;
+  }
+
+  .footer-container {
+    padding: 0 1rem 2rem 1rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .footer-bottom {
+    padding: 1.25rem 1rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Modals & popups — force perfect centering with a safe inset gutter
+     on very small viewports, matching a Tailwind
+     `fixed inset-0 z-50 flex items-center justify-center p-4` pattern. */
+  .payment-modal-overlay,
+  .footer-modal-overlay {
+    padding: 1rem !important;
+  }
+
+  .payment-modal,
+  .footer-modal {
+    padding: 1.25rem !important;
+    max-height: 85vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
   }
 }
