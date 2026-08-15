@@ -1192,30 +1192,42 @@ export default function App() {
       </section>
 
       {selectedCategory === "Home" ? (
-        <div className="quick-cat-section grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 sm:px-6 lg:px-8">
-          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}>
-            <div className="quick-cat-image flex items-center justify-center">
+        <div className="quick-cat-section grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8">
+          <div
+            className="quick-cat-card mx-auto w-full p-5 sm:p-7 lg:p-8 rounded-2xl"
+            onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}
+          >
+            <div className="quick-cat-image flex items-center justify-center min-h-[110px] sm:min-h-[150px] lg:min-h-[170px]">
               <img className="w-full h-auto object-contain mx-auto" src="Kemis 1.jpg" alt="Habesha Kemis" />
             </div>
-            <h4>Habesha Kemis</h4>
+            <h4 className="text-base sm:text-lg lg:text-xl font-semibold mt-3 sm:mt-4">Habesha Kemis</h4>
           </div>
-          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Electronics")}>
-            <div className="quick-cat-image flex items-center justify-center">
+          <div
+            className="quick-cat-card mx-auto w-full p-5 sm:p-7 lg:p-8 rounded-2xl"
+            onClick={() => setSelectedCategory("Electronics")}
+          >
+            <div className="quick-cat-image flex items-center justify-center min-h-[110px] sm:min-h-[150px] lg:min-h-[170px]">
               <img className="w-full h-auto object-contain mx-auto" src="Electronics.png" alt="Electronics" />
             </div>
-            <h4>Electronics</h4>
+            <h4 className="text-base sm:text-lg lg:text-xl font-semibold mt-3 sm:mt-4">Electronics</h4>
           </div>
-          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Modern Fashion")}>
-            <div className="quick-cat-image flex items-center justify-center">
+          <div
+            className="quick-cat-card mx-auto w-full p-5 sm:p-7 lg:p-8 rounded-2xl"
+            onClick={() => setSelectedCategory("Modern Fashion")}
+          >
+            <div className="quick-cat-image flex items-center justify-center min-h-[110px] sm:min-h-[150px] lg:min-h-[170px]">
               <img className="w-full h-auto object-contain mx-auto" src="Sneaker.png" alt="Modern Fashion" />
             </div>
-            <h4>Modern Fashion</h4>
+            <h4 className="text-base sm:text-lg lg:text-xl font-semibold mt-3 sm:mt-4">Modern Fashion</h4>
           </div>
-          <div className="quick-cat-card mx-auto w-full" onClick={() => setSelectedCategory("Spices & Coffee")}>
-            <div className="quick-cat-image flex items-center justify-center">
+          <div
+            className="quick-cat-card mx-auto w-full p-5 sm:p-7 lg:p-8 rounded-2xl"
+            onClick={() => setSelectedCategory("Spices & Coffee")}
+          >
+            <div className="quick-cat-image flex items-center justify-center min-h-[110px] sm:min-h-[150px] lg:min-h-[170px]">
               <img className="w-full h-auto object-contain mx-auto" src="Spices.png" alt="Spices" />
             </div>
-            <h4>Spices</h4>
+            <h4 className="text-base sm:text-lg lg:text-xl font-semibold mt-3 sm:mt-4">Spices</h4>
           </div>
         </div>
       ) : (
@@ -1291,8 +1303,8 @@ export default function App() {
       )}
 
       <footer className="site-footer px-4 sm:px-6 lg:px-8">
-        <div className="footer-container grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="footer-col">
+        <div className="footer-container grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 lg:gap-12 w-full">
+          <div className="footer-col flex flex-col gap-2 min-w-0">
             <h4>Category</h4>
             <button className="footer-link" onClick={() => setSelectedCategory("Cultural Clothes & Crafts")}>Cultural Clothes & Crafts</button>
             <button className="footer-link" onClick={() => setSelectedCategory("Electronics")}>Electronics</button>
@@ -1300,13 +1312,13 @@ export default function App() {
             <button className="footer-link" onClick={() => setSelectedCategory("Spices & Coffee")}>Spices & Coffee</button>
           </div>
 
-          <div className="footer-col">
+          <div className="footer-col flex flex-col gap-2 min-w-0">
             <h4>About Us</h4>
             <button className="footer-link" onClick={() => setActiveFooterModal("story")}>Our Story</button>
             <button className="footer-link" onClick={() => setActiveFooterModal("how")}>How It Works</button>
           </div>
 
-          <div className="footer-col">
+          <div className="footer-col flex flex-col gap-2 min-w-0">
             <h4>Contact</h4>
             <button className="footer-link" onClick={() => setActiveFooterModal("contact")}>Get in Touch</button>
             <button className="footer-link" onClick={() => setActiveFooterModal("support")}>Support</button>
@@ -1536,8 +1548,12 @@ export default function App() {
 
           <div className="detail-content flex flex-col lg:flex-row gap-6">
             <div className="detail-gallery w-full lg:w-1/2 min-w-0">
-              <div className="detail-main-image">
-                <img className="w-full h-auto object-contain" src={detailActiveImage} alt={selectedProduct.name} />
+              <div className="detail-main-image flex items-center justify-center w-full h-[300px] sm:h-[400px] lg:h-[450px]">
+                <img
+                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                  src={detailActiveImage}
+                  alt={selectedProduct.name}
+                />
               </div>
               <div className="detail-thumbs flex flex-wrap gap-2">
                 {getProductImages(selectedProduct)
