@@ -2412,21 +2412,26 @@ body {
     letter-spacing: 0.02em !important;
   }
 
+  /* ---- FIX 1: Category cards — bigger & more prominent on mobile ---- */
   .quick-cat-section {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 0.75rem !important;
-    padding: 1.5rem 0.75rem 0 0.75rem !important;
-    margin-bottom: 2rem !important;
+    gap: 1rem !important;
+    padding: 1.75rem 1rem 0 1rem !important;
+    margin-bottom: 2.25rem !important;
+  }
+
+  .quick-cat-card {
+    border-radius: 18px !important;
   }
 
   .quick-cat-image {
-    height: 110px !important;
-    padding: 0.6rem !important;
+    height: 155px !important;
+    padding: 1rem !important;
   }
 
   .quick-cat-card h4 {
-    font-size: 0.85rem !important;
-    padding: 0.6rem 0.4rem !important;
+    font-size: 0.98rem !important;
+    padding: 0.9rem 0.5rem !important;
   }
 
   .products-grid {
@@ -2468,9 +2473,46 @@ body {
     flex-direction: column !important;
   }
 
+  /* ---- FIX 3: Product detail image — bigger, still uncropped ---- */
+  .detail-main-image {
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 14px !important;
+  }
+
+  /* ---- FIX 2: Footer columns — centered & balanced on mobile ---- */
   .footer-container {
-    padding: 0 1rem 2rem 1rem !important;
-    gap: 1.5rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    padding: 0 1.5rem 1.5rem 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .footer-col {
+    align-items: center !important;
+    gap: 0.65rem !important;
+    padding: 1.5rem 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  }
+
+  .footer-col:first-child {
+    padding-top: 0.5rem !important;
+  }
+
+  .footer-col:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .footer-col h4 {
+    font-size: 1.02rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .footer-link {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 0.92rem !important;
+    padding: 0.15rem 0 !important;
   }
 
   .footer-bottom {
